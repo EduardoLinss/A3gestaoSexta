@@ -1,7 +1,10 @@
 package DAO;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Conexao.Conexao;
 import entidade.dependentes;
@@ -67,4 +70,35 @@ public class DAOdependentes {
                 e.printStackTrace();
             }
         }
+
+         public static List<dependentes> consultaDependentes() throws Exception{
+        List <dependentes> list = new ArrayList<dependentes>();
+        
+        String sql = "select * from dependentes";
+
+       PreparedStatement ps = null;
+       ResultSet scann = null;
+        try{
+            if(ps == null){
+                ps = Conexao.openDatabase().prepareStatement(sql);
+                scann = ps.executeQuery();
+                while (scann.next()) {
+                    dependentes dependentes = new dependentes(0, sql, sql, sql);
+                    dependentes.setId(scann.getInt("id_dependente"));
+                    dependentes.setNome(scann.getString("nome"));
+                    dependentes.setCpf(scann.getString("cpf"));
+                    dependentes.setIdade(scann.getString("idade"));
+                    list.add(dependentes);
+                   
+                }
+
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            ps.close();
+        }
+        return list;
+    }
+   
 }

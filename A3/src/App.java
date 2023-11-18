@@ -2,13 +2,20 @@
 //import javax.sql.RowSetInternal;
 
 import DAO.DAOalerta;
+import DAO.DAOdependentes;
 import DAO.DAOlogin;
+import DAO.DAOrequisicao;
+import DAO.DAOubs;
+import DAO.DAOvacinas;
+import entidade.dependentes;
+import entidade.vacinas;
 //import DAO.DAOrequisicao;
 //import DAO.DAOlogin;
 //import DAO.DAOubs;
 import entidade.login;
 import entidade.alerta;
-
+import entidade.requsicao;
+import entidade.ubs;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,6 +36,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         
+     
         try{
         Scanner sc = new Scanner(System.in);
 
@@ -57,6 +65,54 @@ public class App {
                 for (alerta scanner : DAOalerta.consultaAlertas()) {
                     System.out.println(scanner.getNomeVacina() + scanner.getDataProx());
                 }
+                case 3:
+                DAOrequisicao requisicao = new DAOrequisicao();
+                for(requsicao scanner : DAOrequisicao.getRequsicaos()){
+                    System.out.println(scanner.getnomePais() + scanner.getVacinas());
+                }
+                case 4:
+                //DAOubs ubs = new DAOubs();
+                for (ubs scanner : DAOubs.getUbs()) {
+                    System.out.println(scanner.getEndereco() + scanner.getCep());
+                }
+                case 5:
+                DAOdependentes dependentes = new DAOdependentes();
+                dependentes u = new dependentes();
+
+                System.out.println("1 - Para ver dependentes"+"\n");
+                System.out.println("2 - Para cadastrar dependentes");
+                int escolhaDependentes = sc.nextInt();
+
+                switch (escolhaDependentes) {
+                    case 1:
+                        for (dependentes scanner : DAOdependentes.consultaDependentes()) {
+                            System.out.println(scanner.getNome()+scanner.getCpf()+scanner.getIdade());
+                        }
+                        break;
+                    case 2 :
+                    
+
+                    System.out.println("Digite o nome");
+                    String nome = sc.next();
+                    System.out.println("Digite o cpf ");
+                    String cpf = sc.next();
+                    System.out.println("Digite a idade");
+                    String idade = sc.next();
+                    
+                    u.setNome(nome);
+                    u.setCpf(cpf);
+                    u.setIdade(idade);
+
+                    dependentes.CadastraDependentes(u);
+                
+                    default:
+                        break;
+                }
+                case 6:
+                DAOvacinas vacinas = new DAOvacinas();
+                for (vacinas scanner : DAOvacinas.getVacinas()) {
+                    System.out.println(scanner.getNomeVacina()+ scanner.getTratamento());
+                }
 
             
                 default:
@@ -70,32 +126,6 @@ public class App {
         }
 
 
-
-
-
-
-        //login u = new login();
-       /*  u.setNome("Mauricio");
-        u.setSenha("pao");
-        u.setEmail("Maurico123@gmail.com");
-        u.setCpf("458.564.565-78");
-        u.setDataNasc("14/12/189");
-*
-        new insert().CadastrarUsuario(u);*/
-    /*u.setId(1);
-    u.setNome("Ronaldo");
-
-    new DAOlogin().AtualizarCadastro(u);*/
-
-   
-
-    /*for (ubs c: DAOubs.getUbs()){
-        System.out.println("endereco " + c.getEndereco() + "Cep" + c.getCep());
-        }
-    }*/
-   
-
-    
     
 }
 private static boolean validarLogin(String email, String senha) throws SQLException{
@@ -112,6 +142,7 @@ private static boolean validarLogin(String email, String senha) throws SQLExcept
             }
             return scan.next();
     }
+
 }
 
 

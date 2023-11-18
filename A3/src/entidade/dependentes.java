@@ -14,6 +14,9 @@ public class dependentes {
         this.idade = idade;
     }
     
+    public dependentes() {
+    }
+
     public int getId(){
         return this.id;
     }
