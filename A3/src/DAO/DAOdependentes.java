@@ -1,11 +1,9 @@
 package DAO;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import Conexao.Conexao;
 import entidade.dependentes;
 
@@ -100,5 +98,28 @@ public class DAOdependentes {
         }
         return list;
     }
+        public void CadastraDependentess(String nomes, String cpfs, String idades) {
+             String sql = "insert into dependentes (nome, cpf, idade) values (?, ?, ?)";
+
+        PreparedStatement ps = null;
+
+        try {
+
+            if (ps == null){
+            ps = Conexao.openDatabase().prepareStatement(sql);
+            ps.setString(1, nomes);
+            ps.setString(2, cpfs);
+            ps.setString(3, idades);
+            
+
+            ps.execute();
+            ps.close();
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        }
    
 }

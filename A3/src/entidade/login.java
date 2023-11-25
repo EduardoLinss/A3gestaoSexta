@@ -8,10 +8,7 @@ public class login {
     private String cpf;
     private String dataNasc;
 
-    public login (){
-
-    }
-
+  
     public login(int id, String nome, String senha, String email, String cpf, String dataNasc){
 
         this.id = id;

@@ -3,32 +3,30 @@
 
 import DAO.DAOalerta;
 import DAO.DAOdependentes;
-import DAO.DAOlogin;
+
 import DAO.DAOrequisicao;
 import DAO.DAOubs;
 import DAO.DAOvacinas;
 import entidade.dependentes;
 import entidade.vacinas;
-//import DAO.DAOrequisicao;
-//import DAO.DAOlogin;
-//import DAO.DAOubs;
-import entidade.login;
+
 import entidade.alerta;
 import entidade.requsicao;
 import entidade.ubs;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-//import entidade.login;
-//import entidade.requsinfcao;
-//import entidade.ubs;
+
+
 import java.util.Scanner;
 
 import Conexao.Conexao;
 
 public class App {
+
+
+    
+    
     /**
      * @param args
      * @throws Exception
@@ -61,20 +59,26 @@ public class App {
                     
                     break;
                 case 2:
-                DAOalerta alerta = new DAOalerta();
-                for (alerta scanner : DAOalerta.consultaAlertas()) {
-                    System.out.println(scanner.getNomeVacina() + scanner.getDataProx());
+                
+                for (alerta scanner1 : DAOalerta.consultaAlertas()) {
+                    System.out.println(scanner1.getNomeVacina() + scanner1.getDataProx());
+                    
                 }
+                break;
                 case 3:
-                DAOrequisicao requisicao = new DAOrequisicao();
-                for(requsicao scanner : DAOrequisicao.getRequsicaos()){
-                    System.out.println(scanner.getnomePais() + scanner.getVacinas());
+               
+                for(requsicao scanner2 : DAOrequisicao.getRequsicaos()){
+                    System.out.println(scanner2.getnomePais() + scanner2.getVacinas());
+                    
                 }
+                break;
                 case 4:
                 //DAOubs ubs = new DAOubs();
-                for (ubs scanner : DAOubs.getUbs()) {
-                    System.out.println(scanner.getEndereco() + scanner.getCep());
+                for (ubs scanner3 : DAOubs.getUbs()) {
+                    System.out.println(scanner3.getEndereco() + scanner3.getCep());
+                    
                 }
+                break;
                 case 5:
                 DAOdependentes dependentes = new DAOdependentes();
                 dependentes u = new dependentes();
@@ -104,15 +108,17 @@ public class App {
                     u.setIdade(idade);
 
                     dependentes.CadastraDependentes(u);
+                    break;
                 
                     default:
                         break;
                 }
                 case 6:
-                DAOvacinas vacinas = new DAOvacinas();
+                
                 for (vacinas scanner : DAOvacinas.getVacinas()) {
                     System.out.println(scanner.getNomeVacina()+ scanner.getTratamento());
                 }
+                break;
 
             
                 default:

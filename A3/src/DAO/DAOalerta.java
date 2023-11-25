@@ -9,7 +9,7 @@ import java.util.List;
 import Conexao.Conexao;
 import entidade.alerta;
 //import entidade.login;
-import entidade.login;
+//import entidade.login;
 
 public class DAOalerta {
     
@@ -32,7 +32,7 @@ public void AdicionarAlerta(alerta alerta){
             ps.close();
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
     }

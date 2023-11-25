@@ -132,7 +132,7 @@ public class DAOlogin {
                 ps = Conexao.openDatabase().prepareStatement(sql);
                 scann = ps.executeQuery();
                 while (scann.next()) {
-                    login login = new login();
+                    login login = new login(0, sql, sql);
                     login.setEmail(scann.getString("email"));
                     //login.setSenha(scann.getString("senha"));
                     list.add(login);
