@@ -1,4 +1,4 @@
-package Frames;
+package Frames.dependentes;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.plaf.BorderUIResource;

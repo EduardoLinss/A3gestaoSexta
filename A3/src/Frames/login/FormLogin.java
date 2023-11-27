@@ -1,4 +1,4 @@
-package Frames;
+package Frames.login;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +7,7 @@ import java.sql.*;
 import javax.swing.*;
 
 import Conexao.Conexao;
+import Frames.MainFrame;
 
 
 public class FormLogin extends JFrame {
@@ -90,11 +91,24 @@ public class FormLogin extends JFrame {
             
         });
 
+        JButton btnCadastro = new JButton("Cadastrar-se");
+        btnCadastro.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CadastroLogin botao3 = new CadastroLogin();
+
+                botao3.cadastrar();
+            }
+            
+        });
+
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridLayout(1, 2, 10, 0));
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
         buttonsPanel.add(btnLogin);
         buttonsPanel.add(btnCancel);
+        buttonsPanel.add(btnCadastro);
 
 
 

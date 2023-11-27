@@ -12,6 +12,10 @@ public class requsicao {
         this.vacinas= vacinas;
     }
 
+    public requsicao(String pesquisa, String sql) {
+    
+    }
+
     public int getId(){
         return this.id;
     }

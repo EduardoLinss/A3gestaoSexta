@@ -147,6 +147,31 @@ public class DAOlogin {
         }
         return list;
     }
+    public boolean CadastrarUsuarioFrame(String nomes, String senhas, String emails, String cpfs, String dataNascs) {
+        String sql = "insert into login (nome, senha, email, cpf, dataNasc) values (?, ?, ?, ?, ?)";
+
+        PreparedStatement ps = null;
+
+        try {
+
+            if (ps == null){
+            ps = Conexao.openDatabase().prepareStatement(sql);
+            ps.setString(1, nomes);
+            ps.setString(2, senhas);
+            ps.setString(3, emails);
+            ps.setString(4, cpfs);
+            ps.setString(5, dataNascs);
+
+            ps.execute();
+            ps.close();
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return ps != null;
+
+    }
    
 
     

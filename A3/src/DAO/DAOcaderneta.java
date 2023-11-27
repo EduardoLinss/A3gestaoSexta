@@ -11,7 +11,7 @@ import entidade.caderneta;
 import entidade.dependentes;
 
 public class DAOcaderneta {
-       public void CadastraDependentes(caderneta caderneta){
+       public void CadastraVacina(caderneta caderneta){
         String sql = "insert into caderneta (NomeVacina, dataAplic, dose, local, cidade) values (?, ?, ?, ?, ?)";
 
         PreparedStatement ps = null;
@@ -35,7 +35,7 @@ public class DAOcaderneta {
             e.printStackTrace();
         }
     }
-    public void AtualizaDependentes(caderneta caderneta){
+    public void AtualizaVacinas(caderneta caderneta){
         String sql = "update caderneta SET NomeVacina=?, dataAplic=?, dose=?, local=?, cidade = ?  WHERE id = ?";
 
         PreparedStatement ps=null;
@@ -58,7 +58,7 @@ public class DAOcaderneta {
     }
 
     
-    public void DeletaDependentes(dependentes dependentes){
+    public void DeletaVacinas(dependentes dependentes){
         String sql = "Delete from dependentes Where id =?";
 
         PreparedStatement  ps = null;
@@ -75,7 +75,7 @@ public class DAOcaderneta {
             }
         }
 
-         public static List<caderneta> consultaCaderneta() throws Exception{
+         public static List<caderneta> ConsultaVacinas() throws Exception{
         List <caderneta> list = new ArrayList<caderneta>();
         
         String sql = "select * from caderneta";

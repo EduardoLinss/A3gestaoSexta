@@ -6,6 +6,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import Frames.dependentes.dependentesFrames;
+import Frames.requisicao.requisicaoFramePesquisa;
+
+
 
 public class MainFrame extends JFrame {
     final private Font mainFont = new Font("Arial", Font.BOLD, 18);
@@ -35,8 +39,11 @@ public class MainFrame extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                requisicaoFrame inicaReq = new requisicaoFrame();
-                inicaReq.iniciarReq();
+               /*  requisicaoFrame inicaReq = new requisicaoFrame();
+                inicaReq.iniciarReq();*/
+
+                requisicaoFramePesquisa chama = new requisicaoFramePesquisa();
+                chama.pesquisar();
                 dispose();
                 
             }
@@ -67,6 +74,17 @@ public class MainFrame extends JFrame {
             }
             
         });
+
+        JButton btnCaderneta = new JButton("Caderneta");
+        btnCaderneta.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            cadernetaFrame botaoCaderneta = new cadernetaFrame();
+            botaoCaderneta.Caderneta();
+            }
+
+        });
     
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridBagLayout());      
@@ -77,6 +95,7 @@ public class MainFrame extends JFrame {
         buttonsPanel.add(btnrequisicao);
         buttonsPanel.add(btnAlerta);
         buttonsPanel.add(btnDependentes);
+        buttonsPanel.add(btnCaderneta);
       
         add(info, BorderLayout.NORTH);
         add(buttonsPanel, BoxLayout.X_AXIS);

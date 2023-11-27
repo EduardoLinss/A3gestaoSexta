@@ -16,8 +16,7 @@ public class caderneta {
         this.cidade = cidade;
     }
 
-    public caderneta(int i, String sql, String sql2, String sql3) {
-    }
+    
 
     public String getNome(){
         return this.nome;

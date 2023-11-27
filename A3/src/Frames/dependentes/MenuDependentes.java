@@ -1,4 +1,4 @@
-package Frames;
+package Frames.dependentes;
 
 import javax.swing.*;
 
@@ -21,7 +21,7 @@ public class MenuDependentes extends JFrame {
        
         JLabel lbnome = new JLabel("Nome");
         nome = new JTextField();
-       nome.setBounds(20, 20, 20, 20);
+       
 
         JLabel lbcpf = new JLabel("Cpf");
         cpf = new JTextField();
@@ -78,6 +78,8 @@ public class MenuDependentes extends JFrame {
            
   
         try {
+
+
             
             for (dependentes u : DAOdependentes.consultaDependentes()) {
                 infos.setLayout(new GridLayout(5, 2, 5, 5));
@@ -113,4 +115,6 @@ public class MenuDependentes extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+
+    
 }
