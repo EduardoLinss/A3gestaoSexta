@@ -39,7 +39,7 @@ public class cadernetaFrame extends JFrame {
                 
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+           
             e.printStackTrace();
         }
 
@@ -48,7 +48,9 @@ public class cadernetaFrame extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-               
+               cadastrarVacina vacinas = new cadastrarVacina();
+               vacinas.cadastrarVacinas();
+               dispose();;
             }
             
         });
@@ -58,6 +60,7 @@ public class cadernetaFrame extends JFrame {
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridLayout(1, 2, 10, 0));
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
+        buttonsPanel.add(btnCadastrarVacina);
 
 
 
@@ -65,6 +68,7 @@ public class cadernetaFrame extends JFrame {
 
 
         add(infos, BorderLayout.NORTH);
+        add(buttonsPanel, BorderLayout.SOUTH);
     
      setTitle("dashboard");
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

@@ -105,4 +105,31 @@ public class DAOcaderneta {
         }
         return list;
     }
+
+
+    public void CadastraVacinasFrame(String nomeVacina, String dataAplic, String dose, String local, String cidade) {
+        String sql = "insert into caderneta (NomeVacina, dataAplic, dose, local, cidade) values (?, ?, ?, ?, ?)";
+
+   PreparedStatement ps = null;
+
+   try {
+
+       if (ps == null){
+       ps = Conexao.openDatabase().prepareStatement(sql);
+       ps.setString(1, nomeVacina);
+       ps.setString(2, dataAplic);
+       ps.setString(3, dose);
+       ps.setString(4, local);
+       ps.setString(5, cidade);
+       
+
+       ps.execute();
+       ps.close();
+       }
+   } catch (SQLException e) {
+      
+       e.printStackTrace();
+   }
+
+   }
 }
