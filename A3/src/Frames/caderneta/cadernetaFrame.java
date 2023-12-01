@@ -1,4 +1,4 @@
-package Frames;
+package Frames.caderneta;
 
 import javax.swing.*;
 import DAO.DAOcaderneta;
@@ -50,22 +50,51 @@ public class cadernetaFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                cadastrarVacina vacinas = new cadastrarVacina();
                vacinas.cadastrarVacinas();
-               dispose();;
+               dispose();
             }
             
         });
 
+        JButton btnEditarVacina = new JButton("Editar aplicações");
+        btnEditarVacina.addActionListener(new ActionListener() {
 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editarvacinaFrame botaoEditarvacinaFrame = new editarvacinaFrame();
+                botaoEditarvacinaFrame.editarVacina();
+            }
+            
+        });
+
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                dispose();
+
+            }
+            
+        });
+
+        JButton btnEditar = new JButton("Editar aplicação");
+        btnEditar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               editarvacinaFrame botaoEditarvacinaFrame = new editarvacinaFrame();
+               botaoEditarvacinaFrame.editarVacina();
+            }
+            
+        });
 
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridLayout(1, 2, 10, 0));
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
         buttonsPanel.add(btnCadastrarVacina);
-
-
-
-
-
+        buttonsPanel.add(btnVoltar);
+        buttonsPanel.add(btnEditar);
 
         add(infos, BorderLayout.NORTH);
         add(buttonsPanel, BorderLayout.SOUTH);

@@ -48,7 +48,7 @@ public class FormLogin extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
+                
                 String email = tfEmail.getText();
                 String password = String.valueOf(pfPassword.getPassword());
 

@@ -2,14 +2,11 @@ package Frames.requisicao;
 
 import javax.swing.*;
 
-import Conexao.Conexao;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 
 import DAO.DAOrequisicao;
 
@@ -19,9 +16,9 @@ public class requisicaoFrame extends JFrame {
     JTextField tfpesquisa;
 
     public void iniciarReq(){
-         JPanel infos = new JPanel();
+        
 
-           
+         JPanel infos = new JPanel();   
            
            for (requsicao u : DAOrequisicao.getRequsicaos()) {
             infos.setLayout(new GridLayout(0, 2, 5, 5));
@@ -56,7 +53,6 @@ public class requisicaoFrame extends JFrame {
     JPanel buttonsPanel = new JPanel();
     buttonsPanel.setLayout(new GridLayout(1, 2, 10, 0));
     buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
- 
     buttonsPanel.add(btnVoltar);
    
 

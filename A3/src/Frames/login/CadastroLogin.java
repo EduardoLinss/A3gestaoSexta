@@ -7,7 +7,7 @@ import DAO.DAOlogin;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
+
 
 public class CadastroLogin extends JFrame {
     JTextField nome;
@@ -85,8 +85,26 @@ public class CadastroLogin extends JFrame {
         }
         });
 
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                dispose();
+            }
+            
+        });
+
+        JPanel buttonsPanel = new JPanel();
+        buttonsPanel.setLayout(new GridLayout(1, 2, 10, 0));
+        buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
+        buttonsPanel.add(cadastrar);
+        buttonsPanel.add(btnVoltar);
+
         add(formPanel, BorderLayout.NORTH);
-        add(cadastrar, BorderLayout.SOUTH);
+       // add(cadastrar, BorderLayout.SOUTH);
+       add(buttonsPanel, BorderLayout.SOUTH);
 
 
         setTitle("dashboard");

@@ -1,13 +1,10 @@
-package Frames;
-
+package Frames.caderneta;
 import javax.swing.*;
-
 import DAO.DAOcaderneta;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Stack;
+
 
 public class cadastrarVacina extends JFrame {
     JTextField nomeVacinaField;
@@ -16,9 +13,6 @@ public class cadastrarVacina extends JFrame {
     JTextField localField;
     JTextField cidadeField;
 
-    private JPanel cardPanel;
-    private CardLayout cardLayout;
-    private Stack<String> panelStack;
 
     public void cadastrarVacinas(){
         JLabel lbnomeVacina = new JLabel("Vacina");
@@ -53,7 +47,7 @@ public class cadastrarVacina extends JFrame {
         formPanel.add(lbcidade);
         formPanel.add(cidadeField);
 
-
+        
         JButton btncadastrarVacina = new JButton("Cadastrar");
         btncadastrarVacina.addActionListener(new ActionListener() {
 
@@ -78,13 +72,11 @@ public class cadastrarVacina extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-            
-        }
-            
-            
 
-            
+            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            dispose();
+                
+        }
             
         });
 
@@ -107,5 +99,6 @@ public class cadastrarVacina extends JFrame {
     }
 
 
+   
    
 }

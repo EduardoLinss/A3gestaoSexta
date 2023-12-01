@@ -1,11 +1,15 @@
 package Frames;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+
 
 import DAO.DAOubs;
 import entidade.ubs;
@@ -32,9 +36,21 @@ public class ubsFrame extends JFrame {
 
        }
         
-    }   
+    } 
+
+    JButton btnVoltar = new JButton();
+    btnVoltar.addActionListener(new ActionListener() {
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        dispose();
+      }
+      
+    });
 
     add(infos, BorderLayout.NORTH);
+    add(btnVoltar, BorderLayout.SOUTH);
     
      setTitle("dashboard");
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

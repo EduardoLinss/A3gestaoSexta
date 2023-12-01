@@ -1,9 +1,6 @@
 package Frames.requisicao;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.GridLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
@@ -11,28 +8,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
+import java.awt.*;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
 
 import Conexao.Conexao;
 
 import entidade.requsicao;
 
 public class requisicaoFramePesquisa extends JFrame {
-    final private Font mainFont = new Font("Arial", Font.BOLD, 18);
+    //final private Font mainFont = new Font("Arial", Font.BOLD, 18);
     static JTextField tfpesquisa;
    
     public void pesquisar(){
 
+        
 
-     
 
         JLabel lbpesquisaPais = new JLabel("Pesquisar vacinas em outros Paises", SwingConstants.CENTER);
         
@@ -52,12 +43,9 @@ public class requisicaoFramePesquisa extends JFrame {
         JButton Pesquisar = new JButton("Pesquisar");
         Pesquisar.addActionListener(new ActionListener() {
 
-
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                
-
+   
             try {
                 String pesquisa = tfpesquisa.getText();
                     
@@ -83,22 +71,36 @@ public class requisicaoFramePesquisa extends JFrame {
            
         }
             } catch (SQLException e1) {
-                    // TODO Auto-generated catch block
+                    
                     e1.printStackTrace();
                 }
             }
             
         });
 
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                
+                dispose();
+            }
+            
+        } );
+
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridLayout(1, 2, 10, 0));
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
         buttonsPanel.add(Pesquisar);
+        buttonsPanel.add(btnVoltar);
 
 
         add(formPanel, BorderLayout.NORTH);
-        add(infos, BorderLayout.SOUTH);
-        add(buttonsPanel, BorderLayout.CENTER);
+        add(infos, BorderLayout.CENTER);
+        add(buttonsPanel, BorderLayout.SOUTH);  
+
 
         setTitle("dashboard");
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

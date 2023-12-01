@@ -61,13 +61,30 @@ public class MenuDependentes extends JFrame {
         }
         });
 
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                dispose();
+            }
+            
+        });
+
+        JPanel buttonsPanel = new JPanel();
+        buttonsPanel.setLayout(new GridLayout(1, 2, 10, 0));
+        buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
+        buttonsPanel.add(cadastrar);
+        buttonsPanel.add(btnVoltar);
+
         add(formPanel, BorderLayout.NORTH);
-        add(cadastrar, BorderLayout.SOUTH);
+        add(buttonsPanel, BorderLayout.SOUTH);
 
 
         setTitle("dashboard");
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-         setSize(1100, 650);
+        setSize(1100, 650);
         setLocationRelativeTo(null);
         setVisible(true);
         
@@ -101,7 +118,7 @@ public class MenuDependentes extends JFrame {
                 
             }
         } catch (Exception e1) {
-            // TODO Auto-generated catch block
+           
             e1.printStackTrace();
         }
         

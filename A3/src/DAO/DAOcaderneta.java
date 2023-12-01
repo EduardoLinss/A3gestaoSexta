@@ -132,4 +132,26 @@ public class DAOcaderneta {
    }
 
    }
+   public boolean AtualizaVacinasFrame(String nome, String dataAplic, String dose, String local, String cidade){
+        String sql = "update caderneta SET NomeVacina=?, dataAplic=?, dose=?, local=?, cidade = ?  WHERE NomeVacina = ?";
+
+        PreparedStatement ps=null;
+
+        try{
+            if (ps == null){
+            ps = Conexao.openDatabase().prepareStatement(sql);
+            ps.setString(1, nome);
+            ps.setString(2, dataAplic);
+            ps.setString(3, dose);
+            ps.setString(4, local);
+            ps.setString(5, cidade);
+            
+            ps.execute();
+            ps.close();
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return ps != null;
+    }
 }

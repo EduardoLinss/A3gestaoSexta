@@ -5,10 +5,13 @@ public class vacinas {
     private String nomeVacina;
     private String tratamento;
 
-    public vacinas(int id_vacina, String nomeVacina, String tratamento){
+    public vacinas(String nomeVacina, String tratamento){
         this.id_vacina = id_vacina;
         this.nomeVacina = nomeVacina;
         this.tratamento = tratamento;
+    }
+
+    public vacinas(int i, String sql, String sql2) {
     }
 
     public int getId_vacina(){

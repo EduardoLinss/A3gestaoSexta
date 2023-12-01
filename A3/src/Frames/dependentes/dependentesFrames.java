@@ -1,7 +1,6 @@
 package Frames.dependentes;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.plaf.BorderUIResource;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +12,7 @@ public class dependentesFrames extends JFrame {
     public void iniciaDependentes(){
     
    
-    JPanel infos = new JPanel();
+    //JPanel infos = new JPanel();
     
 
     JButton btnVerDependentes = new JButton("Ver Dependentes");
@@ -47,16 +46,24 @@ public class dependentesFrames extends JFrame {
         
     });
 
+    JButton btnVoltar = new JButton("Voltar");
+    btnVoltar.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            dispose();
+        }
+        
+    });
+
   
     JPanel buttonsPanel = new JPanel();
-   
     buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
-    
-   
-  
     buttonsPanel.setBackground(Color.YELLOW);
     buttonsPanel.add(btnVerDependentes);
     buttonsPanel.add(btnCadastraDependentes);
+    buttonsPanel.add(btnVoltar);
 
 
     //add(infos, BorderLayout.NORTH);

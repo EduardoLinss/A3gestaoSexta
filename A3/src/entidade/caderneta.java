@@ -1,11 +1,14 @@
 package entidade;
 
+import java.awt.Component;
+
 public class caderneta {
     private String nome;
     private String dataAplic;
     private String dose;
     private String local;
     private String cidade;
+    private Component nome2;
 
 
     public caderneta(String nome, String dataAplic, String dose, String local, String cidade){
@@ -15,6 +18,7 @@ public class caderneta {
         this.local = local;
         this.cidade = cidade;
     }
+  
 
     
 
@@ -22,14 +26,15 @@ public class caderneta {
     }
 
 
-
     public String getNome(){
         return this.nome;
     }
+  
     public void setNome(String nome){
         this.nome = nome;
     }
 
+  
     public String getDataAplic(){
         return this.dataAplic;
     }
@@ -51,10 +56,15 @@ public class caderneta {
         this.local = local;
     }
 
-    public String getCidade(){
-        return this.cidade;
-    }
+   public String getCidade(){
+    return this.cidade;
+   }
     public void setCidade(String cidade){
         this.cidade = cidade;
     }
+
+
+
+  
+   
 }

@@ -6,8 +6,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import Frames.caderneta.cadernetaFrame;
 import Frames.dependentes.dependentesFrames;
 import Frames.requisicao.requisicaoFramePesquisa;
+
 
 
 
@@ -85,17 +87,28 @@ public class MainFrame extends JFrame {
             }
 
         });
+
+        JButton btnVacinas = new JButton("Vacinas e seus tratamentos");
+        btnVacinas.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               vacinasFrame botaoVacinas = new vacinasFrame();
+               botaoVacinas.vacinasFrame();
+            }
+            
+        });
     
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridBagLayout());      
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
-       
         buttonsPanel.setBounds(10, 10, 30, 30);
         buttonsPanel.add(btnUbs);
         buttonsPanel.add(btnrequisicao);
         buttonsPanel.add(btnAlerta);
         buttonsPanel.add(btnDependentes);
         buttonsPanel.add(btnCaderneta);
+        buttonsPanel.add(btnVacinas);
       
         add(info, BorderLayout.NORTH);
         add(buttonsPanel, BoxLayout.X_AXIS);
